@@ -5,11 +5,16 @@ import { SyncAlt as InvertIcon } from '@material-ui/icons';
 
 import TranslateBox from '../components/TranslateBox';
 
+import codification from '../utils/codification';
+import decodification from '../utils/decodification';
+
 import { useStyles } from '../styles';
+import { grey } from '@material-ui/core/colors';
 
 function App() {
-  const [language, toggleLanguage] = useState(false);
+  const [language, toggleLanguage] = useState(true);
   const [text, changeText] = useState('');
+  const [response, changeResponse] = useState('');
 
   const classes = useStyles();
 
@@ -35,7 +40,7 @@ function App() {
                 <Tab
                   className={classes.tab}
                   style={{ marginLeft: 'auto' }}
-                  label="Descodificado"
+                  label="Decodificado"
                 />
                 <Tab
                   className={classes.tab}
@@ -56,14 +61,24 @@ function App() {
                 <textarea
                   value={text}
                   onChange={(e) => {
-                    const re = /^[0-1\b]+$/;
+                    const re = /^[0-9a-zA-Z\s]+$/;
                     if (e.target.value === '' || re.test(e.target.value)) {
                       changeText(e.target.value);
+                      var res = language
+                        ? e.target.value !== '' && codification(e.target.value)
+                        : e.target.value !== '' &&
+                          decodification(e.target.value);
+                      e.target.value === ''
+                        ? changeResponse('')
+                        : changeResponse(res.response);
+                    } else {
+                      changeResponse('');
                     }
                   }}
                   className={classes.textField}
                   style={{
                     borderBottomLeftRadius: 10,
+                    borderRight: `1px solid ${grey[100]}`,
                   }}
                 />
               </Grid>
@@ -108,7 +123,7 @@ function App() {
                 <Tab
                   className={classes.tab}
                   style={{ marginRight: 'auto' }}
-                  label="Descodificado"
+                  label="Decodificado"
                 />
               </Tabs>
             </Grid>
@@ -124,13 +139,25 @@ function App() {
                 <textarea
                   value={text}
                   onChange={(e) => {
-                    const re = /^[0-1\b]+$/;
+                    const re = /^[0-9a-zA-Z\s]+$/;
                     if (e.target.value === '' || re.test(e.target.value)) {
                       changeText(e.target.value);
+                      var res = language
+                        ? e.target.value !== '' && codification(e.target.value)
+                        : e.target.value !== '' &&
+                          decodification(e.target.value);
+                      e.target.value === ''
+                        ? changeResponse('')
+                        : changeResponse(res.response);
+                    } else {
+                      changeResponse('');
                     }
                   }}
                   className={classes.textField}
-                  style={{ borderBottomLeftRadius: 10 }}
+                  style={{
+                    borderBottomLeftRadius: 10,
+                    borderRight: `1px solid ${grey[100]}`,
+                  }}
                 />
               </Grid>
             )}
@@ -143,9 +170,11 @@ function App() {
               xl={6}
               className={classes.textBox}>
               <textarea
+                value={response}
                 className={classes.textField}
                 style={{
                   borderBottomRightRadius: 10,
+                  borderLeft: `1px solid ${grey[100]}`,
                 }}
                 readOnly
               />
