@@ -1,4 +1,6 @@
 function decodification(input = '') {
+  if (input.length % 3 !== 0) return { error: true, response: '' };
+
   const re = /^[0-1]+$/;
 
   if (!re.test(input)) return { error: true, response: '' };

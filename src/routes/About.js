@@ -8,7 +8,7 @@ function About() {
     <Container>
       <Typography style={{ marginTop: '50vh', textAlign: 'center' }}>
         Feito por Antonio Carlos Pimenta Junior, Gabriel Reis de Bragança
-        Oliveira, Jonatan Gabriel Bortolon e Lucas Damasceno.
+        Oliveira, Jonatan Gabriel Bortolon e Lucas Oliveira Damaceno.
       </Typography>
       <Typography style={{ marginTop: 50, textAlign: 'center' }}>
         <a href="https://github.com/JonatanBortolon/discrete-mathematics-work">

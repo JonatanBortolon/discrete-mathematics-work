@@ -78,7 +78,7 @@ function App() {
                   className={classes.textField}
                   style={{
                     borderBottomLeftRadius: 10,
-                    borderRight: `1px solid ${grey[100]}`,
+                    border: `1px solid ${grey[100]}`,
                   }}
                 />
               </Grid>
@@ -156,7 +156,7 @@ function App() {
                   className={classes.textField}
                   style={{
                     borderBottomLeftRadius: 10,
-                    borderRight: `1px solid ${grey[100]}`,
+                    border: `1px solid ${grey[100]}`,
                   }}
                 />
               </Grid>
@@ -174,7 +174,7 @@ function App() {
                 className={classes.textField}
                 style={{
                   borderBottomRightRadius: 10,
-                  borderLeft: `1px solid ${grey[100]}`,
+                  border: `1px solid ${grey[100]}`,
                 }}
                 readOnly
               />
