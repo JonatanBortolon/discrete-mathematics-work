@@ -36,4 +36,6 @@ function codification(input = '') {
   return { error: false, response: temp.repeat(3) };
 }
 
-export default codification;
+console.log(codification('A1'));
+
+//export default codification;

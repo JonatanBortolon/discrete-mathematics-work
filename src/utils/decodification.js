@@ -16,11 +16,11 @@ function decodification(input = '') {
   if (temp1 !== temp2 && temp1 !== temp3 && temp2 !== temp3)
     return { error: true, response: '' };
 
-  if (temp1 === temp2 && temp1 === temp3) {
+  if (temp1 === temp2 || temp1 === temp3) {
     correct = temp1;
-  } else if (temp2 === temp1 && temp2 === temp3) {
+  } else if (temp2 === temp3) {
     correct = temp2;
-  } else if (temp3 === temp1 && temp3 === temp1) {
+  } else if (temp3 === temp1) {
     correct = temp3;
   }
 
@@ -58,4 +58,10 @@ function decodification(input = '') {
   };
 }
 
-export default decodification;
+console.log(
+  decodification(
+    '010010010011000110001101010000010011000110001101010000010011000110001101'
+  )
+);
+
+//export default decodification;
