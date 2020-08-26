@@ -58,10 +58,4 @@ function decodification(input = '') {
   };
 }
 
-console.log(
-  decodification(
-    '010010010011000110001101010000010011000110001101010000010011000110001101'
-  )
-);
-
-//export default decodification;
+export default decodification;
